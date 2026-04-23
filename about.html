@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김미래 포트폴리오 - About</title>
+    <style>
+        /* 기본 설정 및 다크모드 유지 */
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-color: #e0e0e0;
+            --point-color: #808000; /* 올리브 포인트 */
+            --sub-point: #bababa;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Pretendard', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* 스크롤이 가능하도록 설정 */
+            overflow-y: auto; 
+        }
+
+        /* 네비게이션 바 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(15, 15, 15, 0.95);
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sub-point);
+            font-weight: 500;
+        }
+
+        .nav-links a.active {
+            color: var(--point-color);
+            border-bottom: 2px solid var(--point-color);
+        }
+
+        /* 컨텐츠 영역 */
+        .container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--point-color);
+            margin-bottom: 2rem;
+        }
+
+        /* 스킬바 디자인 [cite: 1] */
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .bar-bg {
+            background: #333;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            background: var(--point-color);
+            height: 100%;
+            width: 0%; /* 초기값 0 */
+            transition: width 2s ease-out;
+        }
+
+        /* 로드맵(타임라인) 디자인 [cite: 1] */
+        .timeline {
+            border-left: 2px solid var(--point-color);
+            padding-left: 30px;
+            margin-top: 50px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--point-color);
+            border-radius: 50%;
+        }
+
+        .year {
+            font-weight: bold;
+            color: var(--point-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .desc {
+            color: var(--sub-point);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div style="font-weight: bold; color: var(--point-color);">MIRAÉ.</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="works.html">Works</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Skills</h2>
+            <div class="skill-item">
+                <div class="skill-label"><span>AI 활용 능력 (Gemini/ChatGPT)</span><span>95%</span></div>
+                <div class="bar-bg"><div class="bar-fill" id="bar1" style="width: 0%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label"><span>Office 자동화 (엑셀/PPT)</span><span>90%</span></div>
+                <div class="bar-bg"><div class="bar-fill" id="bar2" style="width: 0%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label"><span>데이터 분석 (Python/Tableau)</span><span>80%</span></div>
+                <div class="bar-bg"><div class="bar-fill" id="bar3" style="width: 0%;"></div></div>
+            </div>
+        </section>
+
+        <section style="margin-top: 80px;">
+            <h2>Career Roadmap</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">2025.03 ~ 2026.02 [cite: 1]</span>
+                    <strong>OO 기업 AI 도입 인턴 [cite: 1]</strong>
+                    <p class="desc">워크플로우 자동화 기여 [cite: 1]</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2024.08 [cite: 1]</span>
+                    <strong>제1회 AX(AI 전환) 공모전 [cite: 1]</strong>
+                    <p class="desc">최우수상 수상 [cite: 1]</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 페이지가 로드되면 자동으로 게이지가 차오름 [cite: 1]
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('bar1').style.width = '95%';
+                document.getElementById('bar2').style.width = '90%';
+                document.getElementById('bar3').style.width = '80%';
+            }, 500);
+        };
+    </script>
+</body>
+</html>
